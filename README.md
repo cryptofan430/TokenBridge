@@ -2,16 +2,19 @@
   <a href="https://tangany.com">  
     <img src="https://raw.githubusercontent.com/Tangany/cloud-wallet/master/docs/logo.svg?sanitize=true"  alt="Tangany" width="200" />  
   </a>  
-  <h1>ERC20 Truffle Example</h1>      
+  <h1>Token Bridge for BSC between Ethereum</h1>      
   <p>  
-    <strong>Easy example for deployment of openzeppelin based ERC20 tokens with truffle</strong>  
+    <strong>Deployment with Truffle</strong>  
   </p>  
   <br/>  
 </div>  
 
 # Development
-Modify the main token contract [./contracts/TanganyTestToken.sol](./contracts/TanganyTestToken.sol) to deploy a ERC20 token or replace it with a custom contract. 
-Make sure the contract file name is referenced correctly in [./migrations/2_deploy_contract.js](./migrations/2_deploy_contract.js)
+Main contracts are written in 
+  - [./contracts/TokenBsc.sol](./contracts/TokenBsc.sol) 
+  - [./contracts/TokenEth.sol](./contracts/TokenEth.sol) 
+  - [./contracts/BridgeBsc.sol](./contracts/BridgeBsc.sol) 
+  - [./contracts/BridgeEth.sol](./contracts/BridgeEth.sol) 
 
 ## Environment Variables
 
@@ -26,30 +29,27 @@ printed to the console output:
 
 ````
 
-C:\www\tangany-test-token>npm run build && npm run deploy:development
+C:\www\TokenBridge>npm run build && npm run deploy:development
 
-> tangany-test-token@1.0.0 prebuild C:\www\tangany-test-token
+> TokenBridge@1.0.0 prebuild C:\www\TokenBridge
 > rimraf ./build/contracts/*
 
 
-> tangany-test-token@1.0.0 build C:\www\tangany-test-token
+> TokenBridge@1.0.0 build C:\www\TokenBridge
 > truffle compile
 
 
 Compiling your contracts...
 ===========================
 > Compiling .\contracts\Migrations.sol
-> Compiling .\contracts\TanganyTestToken.sol
-> Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
-> Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol
-> Compiling openzeppelin-solidity\contracts\math\SafeMath.sol
-> Compiling openzeppelin-solidity\contracts\token\ERC20\IERC20.sol
-> Artifacts written to C:\www\tangany-test-token\build\contracts
+> Compiling .\contracts\BridgeBsc.sol
+> Compiling openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
+> Artifacts written to C:\www\TokenBridge\build\contracts
 > Compiled successfully using:
    - solc: 0.5.2+commit.1df8f40c.Emscripten.clang
 
 
-> tangany-test-token@1.0.0 deploy:development C:\www\tangany-test-token
+> TokenBridge@1.0.0 deploy:development C:\www\TokenBridge
 > truffle migrate --network development
 
 
@@ -90,7 +90,7 @@ Starting migrations...
 2_deploy_contract.js
 ====================
 
-   Deploying 'TanganyTestToken'
+   Deploying 'BridgeBsc'
    ----------------------------
    > transaction hash:    0xa5283e240886d3955f03af44e1115985e6ea131fe1538f755719f02fb0f3497a
    > Blocks: 0            Seconds: 0
@@ -151,21 +151,3 @@ npm run build && npm run deploy:ropsten
 ```
 
 ***
-<div align="center">
-<p>   
-<img src="https://raw.githubusercontent.com/Tangany/cloud-wallet/master/docs/logo.svg?sanitize=true"  alt="Tangany" height="50" align="middle" />  
-</p>
-<p>
-© 2019 <a href="https://tangany.com">Tangany</a>
-</p>
-<p>
- <a href="https://tangany.com/imprint/">Imprint</a>
-• <a href="https://tangany.com/imprint/">Privacy policy</a>
-• <a href="https://tangany.com#newsletter">Newsletter</a>
-• <a href="https://twitter.com/tangany_wallet">Twitter</a>
-• <a href="https://www.facebook.com/tanganywallet">Facebook</a>
-• <a href="https://www.linkedin.com/company/tangany/">LinkedIn</a>
-• <a href="https://www.youtube.com/channel/UCmDr1clodG1ov-iX_GMkwMA">YouTube</a>
-• <a href="https://github.com/Tangany/">Github</a>
-</p>
-</div>
